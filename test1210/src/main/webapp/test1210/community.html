@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커뮤니티페이지</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="../script/jquery-3.4.1.min.js"></script>
+<script>
+	$(function(){
+		$(".header").load("header.html"); //공통헤더
+	})
+</script>
+<style>
+	.btncommon {
+		border-radius: 20px;
+	}
+	.btnright{
+		float:right;
+	}
+   	.btncu{
+		   background-color:#D9E8F5;
+		    color: #6387A6;
+	   }
+	.btncu:hover {
+    	background-color: #88a2bf; /* 마우스를 올렸을 때 좀 더 밝은 색상으로 변경 */
+	}
+	.commloc{
+		margin-left: 5%;
+		margin-top: 2%;
+	}
+	.feedlist{
+		list-style: none;
+	}
+</style>
+</head>
+<body>
+	<div class="header"></div>
+    <div class="ms-5 mt-5">
+        <h2><b>커뮤니티</b></h2>
+    </div>
+    <div class="btn-catelocat">	
+    	<button type="button" class="btn btn-outline-dark ms-5 mt-4 btncommon">카테고리 ⋁</button>
+    	<button type="button" class="btn btn-outline-dark ms-3 mt-4 btncommon">지역 ⋁</button>
+    	<button type="button" class="btn btn-outline-dark mt-4 me-5 btnright btncu">글쓰기 
+			<img src="../image/pen.png" style="width: 18px;"></img>
+		</button>
+	</div>
+	<div class="community-feed-list">
+		<ul class="feed-list commloc">
+			<li class="feed-item feedlist">
+				<div class="feed-catecory-location">카테고리 • 지역<div>
+				<div class="feed-title">제목</div>
+				<div class="feed-content">내용</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<script src="../script/jquery-3.4.1.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+</head>
+
+
+ <style>
+	 body, div, span, h5, button, h2, ul, li, a {
+	    font-family:'Gothic A1' !important;
+	    
+	  }
+	  
+	  nav>div>ul>li{
+		   font-family:'Gothic A1' !important;
+	  }
+	  
+	 	.nav-item{
+			 font-family:'Gothic A1' !important;
+		 }
+    	
+    	.button-custom {
+        background-color: #6387A6; /* 사용자 정의 배경색을 지정 */
+        color: white;
+    	}
+		.button-custom:hover {
+        background-color: #88a2bf; /* 마우스를 올렸을 때 좀 더 밝은 색상으로 변경 */
+      
+    	}
+    	
+    	.list-group-item {
+	        border: none; /* 모든 테두리를 제거 */
+	        border-bottom: 1px solid #dee2e6; /* 아래 선만 지정 */
+	    }
+    
+	    .logo{
+			width: 80px;
+			height: 110px;
+			
+		}
+		
+		.navbar-custom{
+			background-color: #D9E8F5;
+		}
+		
+ </style>
+<body>	
+	<div class="navbar-custom" style="padding-top: 30px;" id="fondDive" >
+	    <div class="container">
+	        <nav class="navbar navbar-expand-lg navbar-custom navbar-light" style="height: 90px;">
+	            <div class="container-fluid">
+	                <!-- 로고 -->
+	                <div class="navbar-brand">
+	                     <div class="logo">
+	                        <img src="../image/logo4.png" alt="로고" style="width: 100%; height: 100%;">
+	                    </div>
+	                </div>
+	
+	                <!-- 메뉴 항목 -->
+	                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-bottom: 25px; font-size: 20px; ">
+	                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	                        <li class="nav-item">
+	                            <a class="nav-link" href="#">커뮤니티</a>
+	                        </li>
+	                        <li class="nav-item">
+	                            <a class="nav-link " href="#">후기</a>
+	                        </li>
+	                        <li class="nav-item">
+	                            <a class="nav-link " href="#">견적요청</a>
+	                        </li>
+	                    </ul>
+	
+	                    <!-- 검색 폼 -->
+	                    <form class="d-flex ms-auto" role="search">
+	                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	                        <button class="btn ms-2 button-custom" type="submit" style="color: white;">Search</button>
+	                    </form>
+	
+	                    <!-- 로그인 및 회원가입 버튼 -->
+	                    <button class="btn ms-2 button-custom" type="button" style="color: white;" id="loginButton">로그인</button>
+    					<button class="btn ms-2 button-custom" type="button" style="color: white;" id="signupButton">회원가입</button>
+    					<button class="btn ms-2 button-custom" type="button" style="color: white;" id="expertSignupButton">고수가입</button>
+	                </div>
+	            </div>
+	        </nav>
+	    </div>
+	</div>	
+	
+<script>
+        $(document).ready(function() {
+            // 로그인 버튼 클릭 시
+            $("#loginButton").click(function() {
+                // 로그인 페이지로 이동
+                window.location.href = "login.html";
+            });
+
+            // 회원가입 버튼 클릭 시
+            $("#signupButton").click(function() {
+                // 회원가입 페이지로 이동
+                window.location.href = 'join.html';
+            });
+
+            // 고수가입 버튼 클릭 시
+            $("#expertSignupButton").click(function() {
+                // 고수가입 페이지로 이동
+                window.location.href = 'proJoin.html';
+            });
+            
+             $(".logo").click(function() {
+                window.location.href = 'index.html';
+            });
+        });
+</script>	 
+</body>
+</html>
