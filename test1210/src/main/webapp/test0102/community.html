@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>커뮤니티페이지</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="../script/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="../jquery/location.js"></script>
+	<script>
+		$(function () {
+			$(".header").load("header.html"); //공통헤더
+		})
+
+		var categoryData = {
+			자격증시험: ['스포츠지도사 준비', '한국어능력시험 준비', '한국사능력시험 준비', '정보처리기사 준비', '컴퓨터활용능력 준비'],
+			인테리어: ['가구리폼', '욕실/화장실 리모델링', '도배시공', '주방 리모델링', '조명 인테리어'],
+			가전제품: ['전자제품 수리', '컴퓨터 수리', '비데 렌탈/구입/청소', '에어컨 설치 및 수리', '냉장고 설치 및 수리'],
+			청소: ['에어컨 청소', '바퀴벌레 퇴치', '가구 청소', '계단/화장실 청소', '화재 복구/청소'],
+			번역: ['한문 번역', '영어 번역', '독일어 번역', '일본어/일어 번역', '베트남어 번역'],
+			문서: ['문서/글 작성', 'PPT 제작', '자막 제작', '사업계획서 제작', '데이터 복구'],
+			개발외주: ['웹 개발', '게임 개발', 'iOS 개발', 'QA 테스트', 'ERP 개발'],
+			반려동물: ['반려견 산책', '반려동물 미용', '반려동물 수제간식 만들기', '반려동물 훈련', '반려동물 장례'],
+		};
+
+		
+	</script>
+	<style>
+		.btncommon {
+			border-radius: 20px;
+		}
+
+		.commloc {
+			margin-left: 5%;
+			margin-top: 2%;
+		}
+
+		.feedlist {
+			list-style: none;
+		}
+
+		.f-color {
+			color: #E2E2E2;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header"></div>
+
+	<div class="community-layout mx-auto" style="width: 70%; height: 100%;">
+		<div class="ms-5 mt-5">
+			<h2><b>커뮤니티</b></h2>
+		</div>
+		<div class="btn-catelocat">
+			<button type="button" class="btn btn-outline-dark ms-5 mt-4 btncommon categoryBtn" data-bs-toggle="modal"
+				data-bs-target="#exampleModal">카테고리 ⋁</button>
+			<button type="button" class="btn btn-outline-dark ms-2 mt-4 btncommon locationBtn" data-bs-toggle="modal"
+				data-bs-target="#locationModal">지역 ⋁</button>
+			<button type="button" class="btn button-custom mt-4 me-5" onclick="location.href='post.jsp'" ;
+				style="float:right ;color:white;">글쓰기
+				<img src="../image/pen2.png" style="width: 18px;">
+			</button>
+		</div>
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">카테고리 선택</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="accordion">
+							<!-- 아래 스크립트를 body 내부에 추가하세요 -->
+							<script>
+								// 선택된 데이터를 사용하여 출력하는 부분
+								$.each(categoryData, function (city, districts) {
+									document.write('<div class="accordion-item">');
+									document.write('<h2 class="accordion-header">');
+									document.write('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#' + city + '" aria-expanded="false" aria-controls="' + city + '">');
+									document.write(city);
+									document.write('</button></h2>');
+									document.write('<div id="' + city + '" class="accordion-collapse collapse" data-bs-parent="#category">');
+									document.write('<ul class="list-group">');
+									$.each(districts, function (index, district) {
+										document.write('<button type="button" class="list-group-item list-group-item-action">' + district + '</button>');
+									});
+									document.write('</ul></div></div>');
+								}); 
+							</script>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-primary">선택</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 추가된 locationModal -->
+		<div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="locationModalLabel">지역 선택</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<!--<div class="accordion">
+							 아래 스크립트를 body 내부에 추가하세요 
+							<script>
+								// 선택된 데이터를 사용하여 출력하는 부분
+								$.each(cityData, function (city, districts) {
+									document.write('<div class="accordion-item">');
+									document.write('<h2 class="accordion-header">');
+									document.write('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#' + city + '" aria-expanded="false" aria-controls="' + city + '">');
+									document.write(city);
+									document.write('</button></h2>');
+									document.write('<div id="' + city + '" class="accordion-collapse collapse" data-bs-parent="#locationModal">');
+									document.write('<ul class="list-group">');
+									$.each(districts, function (index, district) {
+										document.write('<button type="button" class="list-group-item list-group-item-action">' + district + '</button>');
+									});
+									document.write('</ul></div></div>');
+								});
+							</script>
+						</div>-->
+						<div class="form-group">
+								        <label for="selectProvince">시/도</label>
+								        <select class="form-control" id="selectProvince">
+								            <!-- 시/도 목록 -->
+								            <option value="seoul" selected>서울</option>
+								            <option value="busan">부산</option>
+								            <option value="incheon">인천</option>
+								            <option value="daejun">대전</option>
+								            <option value="daegu">대구</option>
+								            <option value="ulsan">울산</option>
+								            <option value="kwangju">광주</option>
+								            <option value="jeju">제주</option>
+								            <option value="sejong">세종</option>
+								            <option value="Gyeonggi_do">경기</option>
+								            <option value="Gangwon">강원</option>
+								            <option value="Chungcheongbuk">충북</option>
+								            <option value="Chungcheongnam">충남</option>
+								            <option value="Gyeongsangbuk">경북</option>
+								            <option value="Gyeongsangnam">경남</option>
+								            <option value="Jeollabuk">전북</option>
+								            <option value="Jeollanam">전남</option> 
+								        </select>
+								    </div>
+								
+								    <div class="form-group">
+								        <label for="selectCity">군/구</label>
+								        <select class="form-control" id="selectCity">
+								            <!-- 선택한 시/도에 따른 군/구 목록은 JavaScript로 동적으로 추가됩니다. -->
+								        </select>
+								    </div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-primary">선택</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<article class="community-feed-list mx-auto" style="width: 70%; height: 100%;">
+		<ul class="list-group list-group-flush commloc">
+			<li class="list-group-item feedlist">
+				<a href="#" style="text-decoration : none ; color:black;">
+				</a>
+				<div id="feed"><a href="#" style="text-decoration : none ; color:black;">
+						<div class="feed-container">
+							<div class="row">
+								<span class="f-color">카테고리<span> •
+										<span class="f-color">지역</span>
+									</span></span>
+							</div>
+							<section class="row">
+								<div class="col-10">
+									<p>제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</p>
+									<p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</p>
+								</div>
+								<div class="col-2">
+									<img src="../image/pic1.jpg" class="feed-img" style="width: 120px; height: 120px;"
+										alt="이미지">
+								</div>
+							</section>
+							<div class="row">
+								<div class="col-10">
+									<span class=" f-color"><img src="../image/comment2.png" style="width: 18px;">
+										댓글 수</span>
+									<span class="  f-color"><img src="../image/eye.png" style="width: 18px;">
+										조회수</span>
+								</div>
+								<span class="col f-color">시간</span>
+							</div>
+							<hr>
+						</div>
+					</a>
+				</div>
+			</li>
+		</ul>
+	</article>
+	</div>
+
+</body>
+
+</html>
